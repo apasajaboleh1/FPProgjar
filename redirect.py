@@ -9,7 +9,8 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		self.send_header('Location', new_path)
 		self.end_headers()
 
-PORT = 8009
+PORT = 8010
+SocketServer.TCPServer.allow_reuse_address = True
 handler = SocketServer.TCPServer(("", PORT), myHandler)
 print "serving at port %d" % (PORT)
 handler.serve_forever()
