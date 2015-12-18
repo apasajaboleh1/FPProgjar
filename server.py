@@ -1,11 +1,11 @@
 import socket,time,datetime,sys	
 import os
 queue_data=1001;
-
+addr=socket.gethostbyname(socket.gethostname())
 sys.stdout.write('Port : ')
 port = raw_input()
 port = int(port)
-server_addr = ('localhost',port)
+server_addr = (addr,port)
 sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_addr)
