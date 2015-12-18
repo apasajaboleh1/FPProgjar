@@ -11,6 +11,11 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_addr)
 sock.listen(queue_data)
 print 'serve at %s port %s'%server_addr
+
+f = open("cloud.jpg","rb")
+index = f.read()
+f.close()
+
 while True:
 	client_con,client_addr=sock.accept()
 	#test="<!DOCTYPE HTML><html><h1>sukses gan</h1></html>"
@@ -28,9 +33,6 @@ while True:
 	
 	if temp=="/" :
 		try :
-			f=open("cloud.jpg","rb")
-			index=f.read()
-			f.close()
 			data_send="HTTP/1.1 200 OK \r\n\r\n%s"%index
 			client_con.sendall(data_send)
 		except :
