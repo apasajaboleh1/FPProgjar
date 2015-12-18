@@ -1,9 +1,11 @@
 import socket,time,datetime,sys	
 import os
-server_addr=(host,port)='',8088
 queue_data=1001;
 
-	
+sys.stdout.write('Port : ')
+port = raw_input()
+port = int(port)
+server_addr = ('localhost',port)
 sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_addr)
@@ -29,11 +31,6 @@ while True:
 			f=open("cloud.jpg","rb")
 			index=f.read()
 			f.close()
-			'''
-			datasimpan = ""
-			for i in range(len(datarecognation)):
-				datasimpan=datasimpan+datarecognation[i]+"\n"
-				'''
 			data_send="HTTP/1.1 200 OK \r\n\r\n%s"%index
 			client_con.sendall(data_send)
 		except :
