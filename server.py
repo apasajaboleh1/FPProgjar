@@ -21,8 +21,16 @@ while True:
 	#test="<!DOCTYPE HTML><html><h1>sukses gan</h1></html>"
 	#data="HTTP/1.1 200 OK \n\n%s"%test
 	request = client_con.recv(1024)	
+	
+	print request
 	request_data=request.split()
-	temp=request_data[1]
+	print request_data
+	
+	if len(request_data) > 1:
+		temp=request_data[1]
+	else:
+		temp="/"
+		
 	temp1=temp[1:]
 	datahandler = temp1.split("?")
 	datarecognation=""
