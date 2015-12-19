@@ -3,7 +3,7 @@ import SocketServer
 import socket
 list_server = []
 # untuk di pasang pada server sebagai load balancer untuk yang tier ke dua....
-for i in range(5):
+for i in range(4):
 	list_server.append(socket.gethostbyname(socket.gethostname()))
 	list_server.append('%d'%(9010+i))
 
