@@ -32,14 +32,12 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		#print self.path
 		global idx
 		self.send_response(303)
-		print 'fuk yu', idx
 		new_path = 'http://%s:%s' % (list_server[idx],list_server[idx+1])
 		idx = idx+2
 		
 		if idx >= len(list_server):
 			idx=0
 		
-		#print 'fuk yu',new_path
 		self.send_header('Location', new_path)
 		self.end_headers()
 
