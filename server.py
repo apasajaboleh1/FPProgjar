@@ -2,9 +2,9 @@ import socket,time,datetime,sys
 import os
 queue_data=1001;
 addr=socket.gethostbyname(socket.gethostname())
-sys.stdout.write('Port : ')
-port = raw_input()
-port = int(port)
+#sys.stdout.write('Port : ')
+#port = raw_input()
+port = int(sys.argv[1])
 server_addr = (addr,port)
 sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -12,7 +12,7 @@ sock.bind(server_addr)
 sock.listen(queue_data)
 print 'serve at %s port %s'%server_addr
 
-f = open("cloud.jpg","rb")
+f = open("../cloud.jpg","rb")
 index = f.read()
 f.close()
 
