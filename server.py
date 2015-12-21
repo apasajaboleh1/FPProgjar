@@ -12,7 +12,7 @@ sock.bind(server_addr)
 sock.listen(queue_data)
 print 'serve at %s port %s'%server_addr
 
-f = open("../cloud.jpg","rb")
+f = open("cloud.jpg","rb")
 index = f.read()
 f.close()
 
