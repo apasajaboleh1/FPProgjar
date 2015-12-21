@@ -8,10 +8,12 @@ for i in range(2):
 	list_server.append('10.151.34.120')
 	list_server.append('9009')
 
+
 for i in range(2):
 	list_server.append('10.151.34.104')
 	list_server.append('9009')
-	
+'''	
+
 for i in range(6):
 	list_server.append('10.151.34.147')
 	list_server.append('9009')
@@ -19,10 +21,17 @@ for i in range(6):
 for i in range(4):
 	list_server.append('10.151.34.105')
 	list_server.append('9009')
-'''
+
 for i in range(4):
 	list_server.append('10.151.34.150')
-	#list_server.append('localhost')
+	list_server.append('9009')
+
+for i in range(4):
+	list_server.append('10.151.34.131')
+	list_server.append('9009')
+
+for i in range(4):
+	list_server.append('10.151.34.174')
 	list_server.append('9009')
 
 idx = 0
@@ -43,6 +52,7 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 PORT = 8010
 SocketServer.TCPServer.allow_reuse_address = True
+SocketServer.TCPServer.request_queue_size = 100000
 handler = SocketServer.TCPServer(("", PORT), myHandler)
 print "serving at port %d" % (PORT)
 handler.serve_forever()
