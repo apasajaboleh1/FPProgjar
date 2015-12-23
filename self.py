@@ -26,6 +26,7 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 PORT = 9009
 SocketServer.TCPServer.allow_reuse_address = True
+SocketServer.TCPServer.request_queue_size = 100000
 handler = SocketServer.TCPServer(("", PORT), myHandler)
 print "serving at port %d" % (PORT)
 handler.serve_forever()
