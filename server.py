@@ -1,6 +1,6 @@
 import socket,time,datetime,sys	
 import os
-queue_data=1001;
+queue_data=50000;
 addr=socket.gethostbyname(socket.gethostname())
 #sys.stdout.write('Port : ')
 #port = raw_input()
