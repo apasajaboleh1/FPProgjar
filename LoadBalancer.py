@@ -27,7 +27,7 @@ for i in range(4):
 	list_server.append('9009')
 
 for i in range(4):
-	list_server.append('10.151.34.131')
+	list_server.append('10.151.34.115')
 	list_server.append('9009')
 
 for i in range(4):
