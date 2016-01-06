@@ -34,13 +34,14 @@ for i in range(4):
 	list_server.append('10.151.34.174')
 	list_server.append('9009')
 
+
 idx = 0
 	
 class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 	def do_GET(self):
 		#print self.path
 		global idx
-		self.send_response(303)
+		self.send_response(302)
 		new_path = 'http://%s:%s' % (list_server[idx],list_server[idx+1])
 		idx = idx+2
 		
@@ -49,7 +50,8 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 		
 		self.send_header('Location', new_path)
 		self.end_headers()
-
+		print self
+		
 PORT = 8010
 SocketServer.TCPServer.allow_reuse_address = True
 SocketServer.TCPServer.request_queue_size = 100000
